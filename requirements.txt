@@ -1,0 +1,5 @@
+dash==2.18.2
+dash-iconify==0.1.2
+dash_mantine_components==0.15.1
+Flask==3.0.3
+gunicorn==23.0.0

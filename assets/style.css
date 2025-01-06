@@ -1,0 +1,34 @@
+.shadow-input {
+    display: inline-block;
+    width: 100%;
+    margin: 0;
+    border: 1px solid black;
+    border-color: transparent;
+    border-radius: 5px;
+}
+
+.shadow-input:hover {
+    border-color: gray;
+}
+
+.shadow-input:active, .shadow-input:focus {
+    border-color: black;
+}
+
+.task-container:has(.mantine-Checkbox-root[data-checked]) .mantine-Text-root input {
+    text-decoration: line-through;
+    color: gray;
+}
+
+.task-del-button:hover {
+    color: red;
+}
+
+#list_navigation_layout > div {
+    opacity: 0.7;
+}
+
+#list_navigation_layout > div.active {
+    border-color: black;
+    opacity: 1.0;
+}

@@ -125,7 +125,7 @@ app.layout = dmc.MantineProvider(
             get_list_layout(),
             size=400,
         ),
-        dcc.Store("list_memory", data=sample_list_data, storage_type="local")
+        dcc.Store("list_data_memory", data=sample_list_data, storage_type="local")
     ]
 )
 
@@ -133,7 +133,7 @@ app.layout = dmc.MantineProvider(
 @app.callback(
     Output("main_task_container", "children"),
     Output("main_list_title", "children"),
-    Input("list_memory", "data"),
+    Input("list_data_memory", "data"),
 )
 def update_task_container(list_data):
     """ Updates the list of tasks and list title"""
@@ -142,9 +142,9 @@ def update_task_container(list_data):
 
 
 @app.callback(
-    Output("list_memory", "data", allow_duplicate=True),
+    Output("list_data_memory", "data", allow_duplicate=True),
     Input("new_task_button", "n_clicks"),
-    State("list_memory", "data"),
+    State("list_data_memory", "data"),
     prevent_initial_call=True,
 )
 def add_task(n_clicks, list_data):
@@ -168,9 +168,9 @@ def add_task(n_clicks, list_data):
 
 
 @app.callback(
-    Output("list_memory", "data", allow_duplicate=True),
+    Output("list_data_memory", "data", allow_duplicate=True),
     Input({"type": "task_del", "index": ALL}, "n_clicks"),
-    State("list_memory", "data"),
+    State("list_data_memory", "data"),
     prevent_initial_call=True,
 )
 def remove_task(n_clicks, list_data):
@@ -191,10 +191,10 @@ def remove_task(n_clicks, list_data):
 
 
 @app.callback(
-    Output("list_memory", "data", allow_duplicate=True),
+    Output("list_data_memory", "data", allow_duplicate=True),
     Input({"type": "task_checked", "index": ALL}, "checked"),
     Input({"type": "task_content", "index": ALL}, "value"),
-    State("list_memory", "data"),
+    State("list_data_memory", "data"),
     prevent_initial_call=True,
 )
 def update_task_checked(checked_values, content_values, list_data):

@@ -291,6 +291,117 @@ def update_task_container(list_data, current_index):
     return tasks_layout, title_layout, list_navigation
 
 
+@app.callback(
+    Output("current_index_memory", "data", allow_duplicate=True),
+    Input({"type": "list_button", "index": ALL}, "n_clicks"),
+    prevent_initial_call=True,
+)
+def switch_list(n_clicks):
+    """ Changes the current displayed list"""
+
+    if not any(n_clicks):
+        raise PreventUpdate
+
+    list_index = ctx.triggered_id["index"]
+    print(f"Switching list to `{list_index}`")
+    return list_index
+
+
+@app.callback(
+    [
+        Output("list_data_memory", "data", allow_duplicate=True),
+        Output("current_index_memory", "data"),
+    ],
+    [
+        Input("new_list_button", "n_clicks"),
+        State("list_data_memory", "data"),
+    ],
+    prevent_initial_call=True,
+)
+def add_list(n_clicks, list_data):
+    """ Add a new list and display it"""
+
+    if not n_clicks:
+        raise PreventUpdate
+
+    print("Entering add_list callback")
+
+    new_index = uuid.uuid4().hex
+    new_list = {
+        "index": new_index,
+        "title": "New list",
+        "tasks_list": [],
+    }
+
+    list_data.append(new_list)
+    return list_data, new_index
+
+
+@app.callback(
+    Output("list_data_memory", "data", allow_duplicate=True),
+    [
+        Input("main_list_title", "value"),
+        State("list_data_memory", "data"),
+        State("current_index_memory", "data"),
+    ],
+    prevent_initial_call=True,
+)
+def update_list_title(title, list_data, current_index):
+    """ Updates the current list title"""
+
+    i = get_pos_from_index(list_data, current_index)
+    list_data[i]["title"] = title
+    return list_data
+
+
+@app.callback(
+    Output("del_list_modal", "opened"),
+    [
+        Input("del_list_button", "n_clicks"),
+        Input("del_list_modal_confirm_button", "n_clicks"),
+    ],
+    prevent_initial_call=True,
+)
+def delete_modal_open_close(n_clicks, n_clicks2):
+    """ Open or closes modal. This could be clientside callback. """
+
+    if not n_clicks:
+        raise PreventUpdate
+
+    # Close the modal after removing the list
+    if ctx.triggered_id == "del_list_modal_confirm_button":
+        return False
+
+    return True
+
+
+@app.callback(
+    [
+        Output("list_data_memory", "data", allow_duplicate=True),
+        Output("current_index_memory", "data", allow_duplicate=True),
+    ],
+    [
+        Input("del_list_modal_confirm_button", "n_clicks"),
+        State("list_data_memory", "data"),
+        State("current_index_memory", "data"),
+    ],
+    prevent_initial_call=True,
+)
+def delete_list(n_clicks, list_data, current_index):
+    """ Updates the current list title """
+
+    if not n_clicks:
+        raise PreventUpdate
+
+    # Remove the current list
+    i = get_pos_from_index(list_data, current_index)
+    del list_data[i]
+
+    # Focus again on the first index if there are notes.
+    current_index = list_data[0]["index"] if len(list_data) > 0 else None
+    return list_data, current_index
+
+
 #################################### TASKS ###########################################
 
 @app.callback(

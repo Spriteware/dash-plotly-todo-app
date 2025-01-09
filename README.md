@@ -1,4 +1,4 @@
-# Dash Todo App
+# A minimal yet beautiful To-Do app built in Python
 
 A modern, interactive todo list application built with Dash and Dash Mantine Components.
 This repository is part of a 3 part tutorial on Dash-Resources.com:

@@ -6,8 +6,8 @@ This repository is part of a 3 part tutorial on Dash-Resources.com:
 - [Part 2: Handle multiple lists and save tasks on page reload](https://dash-resources.com/build-a-to-do-app-in-python-with-dash-part-1-3/)
 - Part 3 coming soon...
 
-Here's a quick demo:
-https://github.com/user-attachments/assets/a3071447-ea5c-45b8-b737-819e2fc687e4
+Here's a quick demo:  
+![todo list video](https://github.com/user-attachments/assets/09f38f1b-fc3f-425f-af90-48122f67ebf8)
 
 
 ## Installation
@@ -40,7 +40,7 @@ Visit `http://localhost:8050` in your web browser to use the app.
 
 ## Project Structure
 
-The .py files are intermediate scripts to get to the final result. 
+The .py files are intermediate scripts to get to the final result.   
 ```
 dash-todo-app/
 ├── assets/         

@@ -117,6 +117,7 @@ app.layout = dmc.MantineProvider(
     dmc.Container(
         get_list_layout(sample_list_data),
         size=400,
+        mt="md"
     )
 )
 

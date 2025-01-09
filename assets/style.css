@@ -15,6 +15,30 @@
     border-color: black;
 }
 
+/*
+Styles to use if we use dmc.TextInput
+
+.shadow-input {
+    height: var(--mantine-input-height-xs);
+    min-height: var(--mantine-input-height-xs);
+}
+
+.shadow-input input {
+    padding-left: 2px;
+    padding-right: 2px;
+    font-size: var(--mantine-font-size-md);
+    border-color: transparent;
+    border-radius: 0.5em;
+}
+
+.shadow-input:hover {
+    border-color: gray;
+}
+
+.shadow-input:active, .shadow-input:focus {
+    border-color: black;
+}*/
+
 .task-container:has(.mantine-Checkbox-root[data-checked]) .mantine-Text-root input {
     text-decoration: line-through;
     color: gray;

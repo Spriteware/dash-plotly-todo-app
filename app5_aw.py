@@ -45,7 +45,7 @@ def get_task(task_dict):
     checked = task_dict["checked"]
     index = task_dict["index"]
 
-    content = dmc.Grid(
+    content1 = dmc.Grid(
         [
             dmc.GridCol(
                 dmc.Checkbox(
@@ -56,22 +56,12 @@ def get_task(task_dict):
                 span="content"
             ),
             dmc.GridCol(
-                dmc.Text(
-                    dcc.Input(
-                        text, 
-                        id={"type": "task_content", "index": index},
-                        className="shadow-input",
-                        debounce=True
-                    )
-                ), 
-                # We could have used too:
-                #dmc.TextInput(
-                #    text, 
-                #    id={"type": "task_content", "index": index},
-                #    classNames={"input": "shadow-input"},
-                #    size="md",
-                #    debounce=True
-                #),
+                dmc.TextInput(
+                    text, 
+                    id={"type": "task_content", "index": index},
+                    className="shadow-input",
+                    debounce=True
+                ),
                 span="auto"
             ),
             dmc.GridCol(
@@ -86,6 +76,43 @@ def get_task(task_dict):
             ),
         ],
         className="task-container"
+    )
+
+    content = dmc.Group(
+        [
+            dmc.Checkbox(
+                id={"type": "task_checked", "index": index},
+                checked=checked,
+                mt=2
+            ), 
+            #dmc.Text(
+            #    dcc.Input(
+            #        text, 
+            #        id={"type": "task_content", "index": index},
+            #        className="shadow-input",
+            #        debounce=True
+            #    )
+            #), 
+            dmc.TextInput(
+                text, 
+                id={"type": "task_content", "index": index},
+                classNames={"input": "shadow-input"},
+                style={"flex-grow": 1},
+                size="xs",
+                debounce=True
+            ),
+            dmc.ActionIcon(
+                DashIconify(icon="tabler:x", width=20),
+                id={"type": "task_del", "index": index},
+                variant="transparent",
+                color="gray",
+                className="task-del-button"
+            ),
+        ],
+        gap="xs",
+        mb="sm",
+        grow=True,
+        #className="task-container"
     )
 
     return content

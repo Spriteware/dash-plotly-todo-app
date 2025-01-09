@@ -254,6 +254,7 @@ app.layout = dmc.MantineProvider(
                 gutter="md"
             ),
             size=600,
+            mt="md"
         ),
         dcc.Store("list_data_memory", data=sample_list_data, storage_type="local"),
         dcc.Store("current_index_memory", data=sample_list_data[0]["index"], storage_type="local"),

@@ -2,12 +2,13 @@
 
 A modern, interactive todo list application built with Dash and Dash Mantine Components.
 This repository is part of a 3 part tutorial on Dash-Resources.com:
-- Build a TODO app with Dash plotly (part 1/3)
-- Build a TODO app with Dash plotly (part 2/3)
-- Build a TODO app with Dash plotly (part 2/3)
+- [Part 1: Setup the layout, handle a minimal task list](https://dash-resources.com/build-a-to-do-app-in-python-with-dash-part-1-3/)
+- [Part 2: Handle multiple lists and save tasks on page reload](https://dash-resources.com/build-a-to-do-app-in-python-with-dash-part-1-3/)
+- Part 3 coming soon...
 
+Here's a quick demo:
+https://github.com/user-attachments/assets/a3071447-ea5c-45b8-b737-819e2fc687e4
 
-![Todo App Screenshot](placeholder-for-screenshot.png)
 
 ## Installation
 
@@ -32,18 +33,23 @@ pip install -r requirements.txt
 
 Start the app (or one of the intermediate app) with:
 ```bash
-python app.py
+python app5.py
 ```
 
 Visit `http://localhost:8050` in your web browser to use the app.
 
 ## Project Structure
 
+The .py files are intermediate scripts to get to the final result. 
 ```
 dash-todo-app/
-├── app.py           # Main application file
 ├── assets/         
 │   └── style.css    # Custom CSS styles
+├── app1.py          
+├── app2.py
+├── app3.py
+├── app4.py
+├── app5.py          # This is the final app
 └── README.md
 ```
 
@@ -51,7 +57,8 @@ dash-todo-app/
 
 ### Key Components
 
-- `MantineProvider`: Provides theming and styling context
+This project uses Dash Mantine Components (DMC): https://www.dash-mantine-components.com/
+Key components are:
 - `Paper`: Main container with shadow and rounded corners
 - `Grid`: Flexible layout system for task items
 - `Checkbox`: Task completion status
@@ -65,17 +72,9 @@ The app uses Dash's pattern-matching callbacks to handle dynamic content:
 - Each task has unique identifiers for targeted updates
 - CSS handles visual feedback for better performance
 
-### Styling
-
-Custom CSS provides:
-- Smooth hover effects on inputs
-- Visual feedback for task completion
-- Delete button hover states
-- Clean input field appearance
-
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This code is under the "Do whatever you want with it" license. :-)
 
 ## Acknowledgments
 

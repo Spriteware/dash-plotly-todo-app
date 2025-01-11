@@ -1,12 +1,14 @@
 # A minimal yet beautiful To-Do app built in Python
 
-A modern, interactive todo list application built with Dash and Dash Mantine Components.
+A modern, interactive todo list application built with plotly Dash and Dash Mantine Components.
+No need for Flask, nor Javascript. This is 95% Python and 5% CSS for the styles :-)  
+
 This repository is part of a 3 part tutorial on Dash-Resources.com:
 - [Part 1: Setup the layout, handle a minimal task list](https://dash-resources.com/build-a-to-do-app-in-python-with-dash-part-1-3/)
 - [Part 2: Handle multiple lists and save tasks on page reload](https://dash-resources.com/build-a-to-do-app-in-python-with-dash-part-1-3/)
 - Part 3 coming soon...
 
-Here's a quick demo:  
+Here's a quick demo ([open the live app here](https://scripts.dash-resources.com/todo_app/app5.py/)):  
 ![todo list video](https://github.com/user-attachments/assets/09f38f1b-fc3f-425f-af90-48122f67ebf8)
 
 
